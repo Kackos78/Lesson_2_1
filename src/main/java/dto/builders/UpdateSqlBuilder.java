@@ -11,21 +11,24 @@ public class UpdateSqlBuilder extends SqlBuilder {
     @Override
     public StringBuilder buildSql(){
         sql.append(startedString).append(" ");
-        sql.append(columnsAndAttributes.get("nameTable")).append(" ");
+        sql.append(nameTable).append(" ");
         columnsAndAttributes.remove("nameTable");
         sql.append("( ");
         for (String key: columnsAndAttributes.keySet()){
             sql.append(key).append(", ");
         }
-        sql.deleteCharAt(-2);
+        sql.deleteCharAt(sql.length()-2);
         sql.append(") ");
         sql.append("VALUES").append(" (");
         for (String key: columnsAndAttributes.keySet()){
-            sql.append(columnsAndAttributes.get(key)).append(", ");
+            sql.append("'");
+            sql.append(columnsAndAttributes.get(key));
+            sql.append("'");
+            sql.append(", ");
         }
-        sql.deleteCharAt(-2);
+        sql.deleteCharAt(sql.length()-2);
         sql.append(") ");
-
+        System.out.println(sql);
         return sql;
     }
 

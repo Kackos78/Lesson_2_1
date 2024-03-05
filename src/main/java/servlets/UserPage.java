@@ -19,11 +19,14 @@ import java.util.Map;
 
 public class UserPage extends HttpServlet {
 
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp)throws IOException {
         UserInstructions userInstructions = new UserInstructions(req);
         ReadSqlBuilder sql = new ReadSqlBuilder(userInstructions);
+        PrintWriter printWriter = resp.getWriter();
         Map<String, String> preparedResp = ReadTable.readTable(sql, userInstructions);
-// придумать вывод информации
+        for (String key : preparedResp.keySet()){
+            printWriter.println(key + " = " + preparedResp.get(key));
+        }
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -35,17 +38,21 @@ public class UserPage extends HttpServlet {
     }
 
     @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp){
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException{
         UserInstructions userInstructions = new UserInstructions(req);
         UpdateSqlBuilder sql = new UpdateSqlBuilder(userInstructions);
         UpdateTable.updateTable(sql, userInstructions);
+        PrintWriter printWriter = resp.getWriter();
+        printWriter.println("Hello there");
     }
 
     @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) {
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException{
         UserInstructions userInstructions = new UserInstructions(req);
         DeleteSqlBuilder sql = new DeleteSqlBuilder(userInstructions);
         DeleteTable.deleteTable(sql, userInstructions);
+        PrintWriter printWriter = resp.getWriter();
+        printWriter.println("Hello there");
     }
 
 }

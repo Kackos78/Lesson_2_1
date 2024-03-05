@@ -10,10 +10,8 @@ public class DeleteSqlBuilder extends SqlBuilder{
     @Override
     public StringBuilder buildSql() {
         sql.append(startedString).append(" ");
-        sql.append(columnsAndAttributes.get("nameTable")).append(" ");
-        columnsAndAttributes.remove("nameTable");
-        sql.append("WHERE").append(" id = ");
-        sql.append(columnsAndAttributes.get("id"));
+        sql.append(nameTable).append(" ");
+
         return sql;
     }
 }

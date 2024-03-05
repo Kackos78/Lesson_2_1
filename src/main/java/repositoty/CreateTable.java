@@ -1,6 +1,6 @@
 package repositoty;
 
-import dto.builders.SqlBuilder;
+import dto.builders.CreateSqlBuilder;
 import dto.cache.Cache;
 import entity.database.DbAccess;
 import entity.mapper.UserInstructions;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class CreateTable {
-    public static void createNewTable (SqlBuilder sql, UserInstructions userInstructions){
+    public static void createNewTable (CreateSqlBuilder sql, UserInstructions userInstructions){
         try (Connection connection = DbAccess.getConnection();
              Statement statement = connection.createStatement()){
             statement.executeUpdate(sql.buildSql().toString());

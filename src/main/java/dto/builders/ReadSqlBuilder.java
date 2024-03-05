@@ -10,9 +10,10 @@ public class ReadSqlBuilder extends SqlBuilder{
     public StringBuilder buildSql(){
         sql.append(startedString).append(" ");
         sql.append("*").append(" ");
-        sql.append("FROM");
-        sql.append(columnsAndAttributes.get("nameTable"));
+        sql.append("FROM ");
+        sql.append(nameTable);
         columnsAndAttributes.remove("nameTable");
+        System.out.println(sql);
         return sql;
     }
 }

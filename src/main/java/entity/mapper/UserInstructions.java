@@ -13,7 +13,6 @@ public class UserInstructions {
 
     public UserInstructions(HttpServletRequest request) {
         Map<String, String[]> allMap = request.getParameterMap();
-
         for (String key : allMap.keySet()) {
             String[] strArr =  allMap.get(key);
             for (String val : strArr) {
