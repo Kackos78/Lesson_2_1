@@ -1,5 +1,6 @@
-package entity.mapper;
+package mapper;
 
+import entity.mapper.CrudMapOptions;
 import jakarta.servlet.http.HttpServletRequest;
 
 import java.util.HashMap;

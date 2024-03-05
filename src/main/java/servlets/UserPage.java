@@ -4,7 +4,7 @@ import dto.builders.CreateSqlBuilder;
 import dto.builders.DeleteSqlBuilder;
 import dto.builders.ReadSqlBuilder;
 import dto.builders.UpdateSqlBuilder;
-import entity.mapper.UserInstructions;
+import mapper.UserInstructions;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -34,7 +34,7 @@ public class UserPage extends HttpServlet {
         CreateSqlBuilder sql = new CreateSqlBuilder(userInstructions);
         CreateTable.createNewTable(sql, userInstructions);
         PrintWriter printWriter = resp.getWriter();
-        printWriter.println("Hello there");
+        printWriter.println("Table created");
     }
 
     @Override
@@ -43,7 +43,7 @@ public class UserPage extends HttpServlet {
         UpdateSqlBuilder sql = new UpdateSqlBuilder(userInstructions);
         UpdateTable.updateTable(sql, userInstructions);
         PrintWriter printWriter = resp.getWriter();
-        printWriter.println("Hello there");
+        printWriter.println("Table updated");
     }
 
     @Override
@@ -52,7 +52,7 @@ public class UserPage extends HttpServlet {
         DeleteSqlBuilder sql = new DeleteSqlBuilder(userInstructions);
         DeleteTable.deleteTable(sql, userInstructions);
         PrintWriter printWriter = resp.getWriter();
-        printWriter.println("Hello there");
+        printWriter.println("Table deleted");
     }
 
 }

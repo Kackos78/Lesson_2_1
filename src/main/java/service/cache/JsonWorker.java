@@ -1,4 +1,4 @@
-package dto.cache;
+package service.cache;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.exc.StreamWriteException;

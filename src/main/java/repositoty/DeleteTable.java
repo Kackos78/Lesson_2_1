@@ -1,9 +1,9 @@
 package repositoty;
 
 import dto.builders.DeleteSqlBuilder;
-import dto.cache.Cache;
-import entity.database.DbAccess;
-import entity.mapper.UserInstructions;
+import service.cache.Cache;
+import entity.repository.database.DbAccess;
+import mapper.UserInstructions;
 
 import java.sql.Connection;
 import java.sql.SQLException;

@@ -1,4 +1,4 @@
-package entity.database;
+package entity.repository.database;
 import java.sql.*;
 
 public class DbAccess {

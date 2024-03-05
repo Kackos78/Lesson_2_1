@@ -1,7 +1,7 @@
 package dto.builders;
 
 
-import entity.mapper.UserInstructions;
+import mapper.UserInstructions;
 
 public class CreateSqlBuilder extends SqlBuilder {
 

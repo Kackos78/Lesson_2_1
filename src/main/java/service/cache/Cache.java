@@ -1,6 +1,6 @@
-package dto.cache;
+package service.cache;
 
-import entity.mapper.UserInstructions;
+import mapper.UserInstructions;
 
 import java.util.*;
 

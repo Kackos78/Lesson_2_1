@@ -1,6 +1,6 @@
 package dto.builders;
 
-import entity.mapper.UserInstructions;
+import mapper.UserInstructions;
 
 import java.util.Map;
 
