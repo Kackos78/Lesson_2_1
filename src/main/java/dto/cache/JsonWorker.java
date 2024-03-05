@@ -7,11 +7,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class JsonWorker {
-    public static boolean saveJson (Map<String, String[]> data, String fileName){
+    public static boolean saveJson (Map<String, ArrayList<String>> data, String fileName){
         ObjectMapper mapper = new ObjectMapper();
         File file = new File(fileName);
         try {
@@ -30,10 +31,10 @@ public class JsonWorker {
         }
 
     }
-    public static Map<String, String[]>  loadJson (String fileName) {
+    public static Map<String, ArrayList<String>>  loadJson (String fileName) {
         ObjectMapper mapper = new ObjectMapper();
         File file = new File(fileName);
-        Map<String, String[]> data = new HashMap<>();
+        Map<String, ArrayList<String>> data = new HashMap<>();
             try {
                 if (!file.exists()) {
                     mapper.writeValue(new File(fileName), data);
