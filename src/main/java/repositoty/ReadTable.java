@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class ReadTable {
@@ -21,9 +20,11 @@ public class ReadTable {
         try (Connection connection = DbAccess.getConnection();
              Statement statement = connection.createStatement()){
 
-            ResultSet resultSet = statement.executeQuery(ql.buildSql().toString());
-            Map<String, String[]> allTablesColumns = Cache.getCache();
-            ArrayList<String> columns = new ArrayList<>(List.of(allTablesColumns.get(userInstructions.getNameTable())));
+            ResultSet resultSet = statement.executeQuery(sql.buildSql().toString());
+            HashMap<String, ArrayList<String>> allTablesColumns = new HashMap<>(Cache.getCache());
+
+
+            ArrayList<String> columns = allTablesColumns.get(userInstructions.getNameTable());
 
             while (resultSet.next()){
                 for (String column : columns) {
