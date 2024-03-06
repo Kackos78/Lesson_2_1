@@ -10,13 +10,7 @@ public class Cache {
         String fileName = "cache.json";
         Set<String> setOfColumns = userInstructions.getColumnsAndAttributes().keySet();
 
-        int n = setOfColumns.size();
-        ArrayList<String> arr = new ArrayList<>(n);
-        int i = 0;
-        for (String x : setOfColumns)
-            arr.set(i++, x);
-
-        ArrayList<String> listOfColumns = arr;
+        ArrayList<String> listOfColumns = new ArrayList<>(setOfColumns);
         Map<String, ArrayList<String>> cacheMap = JsonWorker.loadJson(fileName);
         if(!cacheMap.isEmpty()){
             cacheMap.put(userInstructions.getNameTable(), listOfColumns);
